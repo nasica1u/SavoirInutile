@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity implements ContentManager.Da
     {
         mItems = savoirItem;
         mPager.setAdapter(new MyPagerAdapter(savoirItem));
-        Toast.makeText(this, "Contenu chargé.", Toast.LENGTH_SHORT).show();
+        if(Utils.isNetworkAvailable(this))
+            Toast.makeText(this, "Contenu chargé.", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "Cache chargé.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
